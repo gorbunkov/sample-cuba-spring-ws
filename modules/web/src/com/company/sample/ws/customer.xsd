@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://company.com/ws/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="createCustomerRequest" type="sch:CreateCustomerRequestType" xmlns:sch="http://company.com/ws/schemas"/>
+  <xs:element name="createCustomerResponse" type="sch:CreateCustomerResponseType" xmlns:sch="http://company.com/ws/schemas"/>
+  <xs:complexType name="CreateCustomerRequestType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="firstName"/>
+      <xs:element type="xs:string" name="lastName"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CreateCustomerResponseType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
