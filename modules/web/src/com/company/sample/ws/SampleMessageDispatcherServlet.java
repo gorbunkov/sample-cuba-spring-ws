@@ -5,7 +5,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+
 public class SampleMessageDispatcherServlet extends MessageDispatcherServlet {
+
+    private boolean initialized = false;
 
     /**
      * Sets the Spring application context of a web app as a parent for the context of the DispatcherServlet context
@@ -26,5 +31,13 @@ public class SampleMessageDispatcherServlet extends MessageDispatcherServlet {
                     "' as ServletContext attribute with name [" + attrName + "]");
         }
         return wac;
+    }
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        if (!initialized) {
+            super.init(config);
+            initialized = true;
+        }
     }
 }
